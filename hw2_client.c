@@ -97,7 +97,7 @@ int main(int argc, char *argv[])
     sendto(sock, &sender, sizeof(info), 0, //파일을 다 전송하고 나서 종료를 위해 -1번을 전송
         (struct sockaddr*)&serv_adr, sizeof(serv_adr));
 
-    throughput = data_size / ( (end.tv_sec-start.tv_usec)+(end.tv_usec-start.tv_usec)/ 1000000.0);
+    throughput = data_size / ( (end.tv_sec-start.tv_sec)+(end.tv_usec-start.tv_usec)/ 1000000.0);
     printf("throughput : %f\n",throughput);
     close(sock);
     return 0;
